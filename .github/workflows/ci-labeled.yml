@@ -14,5 +14,5 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: Show context
         env:
-          GITHUB_CONTEXT: ${{ github.head_ref }}
+          LABEL_NAME: ${{ github.event.label.name }}
         run: echo "$GITHUB_CONTEXT"
