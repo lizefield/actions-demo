@@ -1,0 +1,14 @@
+name: CI Labeled Test
+on:
+  pull_request:
+    types: [labeled]
+    branches:
+      - 'features/**'
+
+jobs:
+  build:
+    name: Greeting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo the greeting's time
+        run: echo 'The time was ${{ time }}.'
