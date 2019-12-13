@@ -15,4 +15,4 @@ jobs:
       - name: Show context
         env:
           LABEL_NAME: ${{ github.event.label.name }}
-        run: echo "$GITHUB_CONTEXT"
+        run: echo "$LABEL_NAME"
