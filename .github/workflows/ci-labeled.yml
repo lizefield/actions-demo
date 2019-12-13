@@ -1,6 +1,8 @@
 name: CI Labeled Test
 on:
   pull_request:
+    branches:
+      - 'features/**'
     types: [labeled]
 
 jobs:
@@ -11,4 +13,8 @@ jobs:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Show context
+        env:
+          GITHUB_CONTEXT: ${{ github.head_ref }}
         run: echo "$GITHUB_CONTEXT"
