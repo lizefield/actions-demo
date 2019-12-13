@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo the greeting's time
-        run: echo 'The time was ${{ time }}.'
+        run: echo 'This is a medium test.'

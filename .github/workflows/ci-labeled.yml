@@ -11,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo the greeting's time 1
-        run: echo 'The time was'
+        run: echo 'This is a labeled test.'
