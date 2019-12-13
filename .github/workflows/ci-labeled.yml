@@ -1,14 +1,16 @@
 name: CI Labeled Test
 on:
   pull_request:
-    types: [labeled]
     branches:
       - 'features/**'
+    types: [labeled]
 
 jobs:
   build:
     name: Greeting
     runs-on: ubuntu-latest
     steps:
-      - name: Echo the greeting's time 1
-        run: echo 'This is a labeled test.'
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
