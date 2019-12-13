@@ -1,5 +1,8 @@
 name: CI Medium Test
-on: [push]
+on:
+  push:
+    branches:
+      - 'features/**'
 
 jobs:
   build:
@@ -7,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo the greeting's time
-        run: echo 'The time was ${{ steps.hello.outputs.time }}.'
+        run: echo 'The time was ${{ time }}.'
