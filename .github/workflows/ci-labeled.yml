@@ -16,3 +16,14 @@ jobs:
         env:
           LABEL_NAME: ${{ github.event.label.name }}
         run: echo "$LABEL_NAME"
+      - name: Label Bug Run
+        env:
+          LABEL_NAME: ${{ github.event.label.name }}
+        if: $LABEL_NAME = "bug"
+        run: echo bug running
+      - name: Label Document Run
+        env:
+          LABEL_NAME: ${{ github.event.label.name }}
+        if: $LABEL_NAME = "document"
+        run: echo document running
+        
