@@ -2,13 +2,24 @@ name: CI Labeled Test
 on:
   pull_request:
     types: [labeled]
-    branches:
-      - 'features/**'
 
 jobs:
   build:
     name: Greeting
     runs-on: ubuntu-latest
     steps:
-      - name: Echo the greeting's time
-        run: echo 'The time was ${{ time }}.'
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Show context
+        env:
+          LABEL_NAME: ${{ github.event.label.name }}
+        run: echo "$LABEL_NAME"
+      - name: Label Bug Run
+        if: github.event.label.name == 'bug'
+        run: echo bug running
+      - name: Label Documentation Run
+        if: github.event.label.name == 'documentation'
+        run: echo documentation running
+        
